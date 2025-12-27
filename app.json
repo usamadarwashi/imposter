@@ -4,8 +4,9 @@
     "slug": "imposter",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/gg.png",
     "scheme": "imposter",
+    "assetBundlePatterns": ["**/*"],
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -14,16 +15,16 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        "foregroundImage": "./assets/images/gg.png",
+        "backgroundImage": "./assets/images/gg.png",
+        "monochromeImage": "./assets/images/gg.png"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/gg.png"
     },
     "plugins": [
       "expo-router",
@@ -36,6 +37,25 @@
           "backgroundColor": "#ffffff",
           "dark": {
             "backgroundColor": "#000000"
+          }
+        }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": ["../assets/fonts/stc.ttf"],
+          "android": {
+            "fonts": [
+              {
+                "fontFamily": "stc",
+                "fontDefinitions": [
+                  {
+                    "path": "../assets/fonts/stc.ttf",
+                    "weight": 800
+                  }
+                ]
+              }
+            ]
           }
         }
       ]
