@@ -1,27 +1,20 @@
-import { Stack } from "expo-router";
 import { useFonts } from "expo-font";
-import * as SplashScreen from "expo-splash-screen";
-import { useCallback } from "react";
-import { View } from "react-native";
+import { SplashScreen, Stack } from "expo-router";
+import { useEffect } from "react";
 
 SplashScreen.preventAutoHideAsync();
 
+
 export default function RootLayout() {
-  const [loaded, error] = useFonts({
-    stc: require("../assets/fonts/stc.ttf"),
+    
+  const [loaded] = useFonts({
+    stc: require("../assets/fonts/Alexandria-Regular.ttf"),
   });
 
-  const onLayoutRootView = useCallback(async () => {
-    if (loaded || error) {
-      await SplashScreen.hideAsync();
-    }
-  }, [loaded, error]);
+  useEffect(() => {
+    if (loaded) SplashScreen.hideAsync();
+  }, [loaded]);
 
-  if (!loaded && !error) return null;
-
-  return (
-    <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-      <Stack screenOptions={{ headerShown: false }} />
-    </View>
-  );
+  if (!loaded) return null;
+  return <Stack screenOptions={{ headerShown: false }} />;
 }
